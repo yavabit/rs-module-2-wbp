@@ -1,0 +1,20 @@
+{
+  "name": "webpack-module",
+  "version": "1.0.0",
+  "description": "Webpack module",
+  "scripts": {
+    "start": "npx webpack serve --config webpack.config.dev.js",
+    "build": "npx webpack --config webpack.config.prod.js",
+    "build:dev": "npx webpack --config webpack.config.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yavabit/rs-module-2-wbp.git"
+  },
+  "author": "Anton Zhilenkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yavabit/rs-module-2-wbp/issues"
+  },
+  "homepage": "https://github.com/yavabit/rs-module-2-wbp#readme"
+}
