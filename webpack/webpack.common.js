@@ -21,14 +21,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(ROOT_DIR, 'public/index.html'),
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(ROOT_DIR, 'public/assets'),
-          to: path.resolve(ROOT_DIR, 'dist/assets'),
-        },
-      ],
-    }),
     new MiniCssExtractPlugin()
   ],
   module: {
@@ -54,8 +46,32 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf|png|jpg|svg|mp3)$/i,
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/[contenthash][ext]', // Указываем, чтобы файлы копировались в assets
+        },
+      },
+      {
+        test: /\.(svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/icons/[contenthash][ext]', // Указываем, чтобы файлы копировались в assets
+        },
+      },
+      {
+        test: /\.(mp3)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/sounds/[contenthash][ext]', // Указываем, чтобы файлы копировались в assets
+        },
+      },
+      {
+        test: /\.(jpg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[contenthash][ext]', // Указываем, чтобы файлы копировались в assets
+        },
       },
       {
         test: /\.[tj]sx?$/,
