@@ -17,7 +17,8 @@ module.exports = merge(commonConfig, {
     new ESLintPlugin({
       extensions: ['js', 'ts'],
       files: path.resolve(ROOT_DIR, 'src/*.ts'),
-      emitWarning: true
+      emitWarning: true,
+      overrideConfigFile: path.resolve(ROOT_DIR, 'eslint.config.js')
     }),
   ],
 })
