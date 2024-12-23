@@ -14,7 +14,7 @@ const body = document.querySelector('body')
 
 let audio: HTMLAudioElement;
 let currentAudioId: number; 
-let volumeRange = "50";
+let volumeRange: string;
 
 const pausePlayAudioListener = (item: IDataItem, icon: HTMLElement) => {
     const res = pausePlayAudio({item, icon, audio, currentAudioId, volumeRange, body});
@@ -23,14 +23,14 @@ const pausePlayAudioListener = (item: IDataItem, icon: HTMLElement) => {
 };
 
 const handleRangeInputListener = (e: Event) => {
-  volumeRange = handleRangeInput(e, volumeRange, audio).volumeRange
+  volumeRange = handleRangeInput(e, audio).volumeRange
 }
 
 const cards = new Cards(data)
 cards.renderData({container: weatherContainer, listener: pausePlayAudioListener})
 
 const audios = new VolumeInput()
-audios.render({container, volumeRange, listener: handleRangeInputListener})
+audios.render({container, listener: handleRangeInputListener})
 
 
 
