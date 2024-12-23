@@ -24,11 +24,18 @@ export class Cards {
 			icon.id = item.id.toString()
 			icon.className = "weather-card__icon"
 			icon.style.backgroundImage = `url(${getIcon(item.icon)})`
-			card.append(icon)
-		  
-			icon.addEventListener("click", function(e) {
-			  listener(item, icon)
-			})
+			card.append(icon)		  
 		})
+
+		container.addEventListener("click", (e) => {
+			const target = e.target as HTMLElement;
+			if (target.classList.contains("weather-card__icon")) {
+			  const itemId = target.id;
+			  const item = this.cards.find(card => card.id.toString() === itemId);
+			  if (item) {
+				listener(item, target);
+			  }
+			}
+		});
 	}
 }
