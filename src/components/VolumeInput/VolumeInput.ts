@@ -2,13 +2,13 @@ import { renderElem } from "../../shared/helpers/renderElem"
 
 interface IRender {
 	container: Element,
-	volumeRange: string,
 	listener: (e: Event) => void
+	volumeRange?: string,
 }
 
 export class VolumeInput {
 	constructor() { }
-	render({container, volumeRange, listener}: IRender) {
+	render({container, listener, volumeRange = "50"}: IRender) {
 		const formControl = renderElem("div", container, "weather-form-control")
 		const range = renderElem("input", formControl, "weather__input-range")
 		range.setAttribute("type", "range")
