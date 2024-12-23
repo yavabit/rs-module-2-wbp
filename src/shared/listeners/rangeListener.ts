@@ -1,12 +1,12 @@
-export const handleRangeInput = (e: Event, volumeRange: string, audio: HTMLAudioElement) => {
+export const handleRangeInput = (e: Event, audio: HTMLAudioElement) => {
 	const target = e.currentTarget as HTMLInputElement;
-	volumeRange = target.value; // Теперь TypeScript знает, что это HTMLInputElement
+	
 	if (audio) {
-		audio.volume = Number(volumeRange) / 100;
+		audio.volume = Number(target.value) / 100;
 	}
 
 	const valNumber = document.querySelector(".weather__volume-val");
-	valNumber.textContent = volumeRange;
+	valNumber.textContent = target.value;
 
-	return {volumeRange}
+	return {volumeRange: target.value}
 };
