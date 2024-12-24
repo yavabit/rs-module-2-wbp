@@ -6,11 +6,11 @@ import { pausePlayAudio } from './shared/listeners/pausePlayAudio'
 import { handleRangeInput } from './shared/listeners/rangeListener'
 import './index.scss'
 
-const root = document.querySelector('#app')
+const root = document.querySelector('#app')! as HTMLElement;
 
 const container = renderElem("div", root, "weather-container")
 const weatherContainer = renderElem("div", container, "weather-container-elems")
-const body = document.querySelector('body')
+const body = document.querySelector('body')! as HTMLBodyElement
 
 let audio: HTMLAudioElement;
 let currentAudioId: number; 

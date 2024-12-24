@@ -1,12 +1,16 @@
 import { renderElem } from "../../shared/helpers/renderElem"
 
+interface IVolumeInput {
+	render: ({container, listener, volumeRange}: IRender) => void
+}
+
 interface IRender {
 	container: Element,
 	listener: (e: Event) => void
 	volumeRange?: string,
 }
 
-export class VolumeInput {
+export class VolumeInput implements IVolumeInput {
 	constructor() { }
 	render({container, listener, volumeRange = "50"}: IRender) {
 		const formControl = renderElem("div", container, "weather-form-control")

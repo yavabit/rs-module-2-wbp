@@ -5,7 +5,7 @@ export const handleRangeInput = (e: Event, audio: HTMLAudioElement) => {
 		audio.volume = Number(target.value) / 100;
 	}
 
-	const valNumber = document.querySelector(".weather__volume-val");
+	const valNumber = document.querySelector(".weather__volume-val")! as HTMLElement;
 	valNumber.textContent = target.value;
 
 	return {volumeRange: target.value}
